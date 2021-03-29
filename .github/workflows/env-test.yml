@@ -1,0 +1,21 @@
+name: Open environment
+on: 
+  workflow_dispatch:
+    inputs:
+        environment:
+          description: 'Define virtual environment to run'     
+          required: true
+          default: 'windows-latest'
+jobs:
+  build:
+    runs-on: ${{ github.event.inputs.environment }}
+    steps:
+    - uses: actions/checkout@v2
+      with: 
+        repository: 'realm/realm-js'
+        ref: 'develop'
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
+      with:
+        limit-access-to-actor: true
+      timeout-minutes: 20
