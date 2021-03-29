@@ -15,7 +15,7 @@ jobs:
         repository: 'realm/realm-js'
         ref: 'develop'
     - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v3
+      uses: mxschmitt/action-tmate@v3.1
       with:
         limit-access-to-actor: true
       timeout-minutes: 20
